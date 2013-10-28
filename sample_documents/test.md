@@ -21,7 +21,7 @@ POST /endpoint
 
 ```
 Status: 200
-Response:
+
 {
    "result" : {
       "message" : "hello"

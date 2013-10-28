@@ -49,7 +49,7 @@ sub default_template {
 
 ```
 Status: <?= $code ?>
-Response:
+
 <?= $response_body ?>
 ```
 
