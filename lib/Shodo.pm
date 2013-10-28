@@ -14,9 +14,9 @@ sub new {
 }
 
 sub new_suzuri {
-    my $self = shift;
+    my ($self, $description) = @_;
     my $hanshi = Shodo::Hanshi->new( template => $self->{template} );
-    return Shodo::Suzuri->new( hanshi => $hanshi );
+    return Shodo::Suzuri->new( hanshi => $hanshi, description => $description );
 }
 
 1;
@@ -35,7 +35,7 @@ Shodo - Auto-generate documents from HTTP::Request and HTTP::Response
     use Shodo;
     
     my $shodo = Shodo->new();
-    my $suzuri = $shodo->new_suzuri();
+    my $suzuri = $shodo->new_suzuri('An endpoint method.');
 
     my $req = POST '/entry', [ id => 1, message => 'Hello Shodo' ];
     $suzuri->request($req);

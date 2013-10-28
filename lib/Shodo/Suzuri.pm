@@ -7,7 +7,10 @@ use JSON qw/from_json to_json/;
 
 sub new {
     my ($class, %args) = @_;
-    my $self = bless { hanshi => $args{hanshi} }, $class;
+    my $self = bless {
+        hanshi => $args{hanshi},
+    }, $class;
+    $self->stash->{description} = $args{description} || '';
     $self;
 }
 

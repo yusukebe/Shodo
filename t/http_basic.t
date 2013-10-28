@@ -6,7 +6,7 @@ use Shodo;
 
 my $shodo = Shodo->new;
 ok $shodo;
-my $suzuri = $shodo->new_suzuri;
+my $suzuri = $shodo->new_suzuri('Just for test.');
 ok $suzuri;
 
 my $req = POST '/entry', [ id => 1, message => 'Hello Shodo' ];

@@ -10,7 +10,7 @@ Shodo - Auto-generate documents from HTTP::Request and HTTP::Response
     
 
     my $shodo = Shodo->new();
-    my $suzuri = $shodo->new_suzuri();
+    my $suzuri = $shodo->new_suzuri('An endpoint method.');
 
     my $req = POST '/entry', [ id => 1, message => 'Hello Shodo' ];
     $suzuri->request($req);

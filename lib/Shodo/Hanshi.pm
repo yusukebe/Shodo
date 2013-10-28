@@ -31,7 +31,11 @@ END
 sub default_template {
     my $tmpl = <<'END';
 ## <?= $method ?> <?= $path ?>
+? if ($description) {
 
+<?= $description ?>
+
+? }
 ### Request
 
 <?= $method ?> <?= $path ?><?= $query || '' ?>
