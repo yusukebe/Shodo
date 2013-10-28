@@ -3,6 +3,7 @@ use Test::More;
 use HTTP::Request::Common;
 use HTTP::Response;
 use Shodo;
+use JSON qw/to_json/;
 
 my $shodo = Shodo->new;
 my $suzuri = $shodo->new_suzuri;
