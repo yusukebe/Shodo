@@ -13,7 +13,7 @@ my $req = POST '/entry', [ id => 1, message => 'Hello Shodo' ];
 $suzuri->request($req);
 
 my $res = HTTP::Response->new(200);
-$res->content('{ message => "success" }');
+$res->content('{ "message" : "success" }');
 $suzuri->response($res);
 
 ok $suzuri->doc();
