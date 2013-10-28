@@ -8,7 +8,7 @@ use JSON qw/to_json/;
 my $shodo = Shodo->new( document_root => 'sample_documents' );
 my $suzuri = $shodo->new_suzuri('Just a test document');
 
-my $data = { method => 'echo', param => { message => 'Hello' } };
+my $data = { method => 'echo', params => { message => 'Hello' } };
 my $req = POST '/endpoint';
 $req->content(to_json($data));
 $req->header('Content-Type' => 'application/json');
