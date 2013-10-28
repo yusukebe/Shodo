@@ -5,13 +5,14 @@ Just a test document
 
 ### Request
 
-POST /endpoint
 ```
+POST /endpoint
+
 {
-   "method" : "echo",
-   "param" : {
+   "params" : {
       "message" : "Hello"
-   }
+   },
+   "method" : "echo"
 }
 
 ```
