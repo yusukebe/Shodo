@@ -36,6 +36,7 @@ sub default_template {
 <?= $description ?>
 
 ? }
+
 ### Request
 
 <?= $method ?> <?= $path ?><?= $query || '' ?>

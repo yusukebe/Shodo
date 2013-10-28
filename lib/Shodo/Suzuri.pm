@@ -4,18 +4,23 @@ use warnings;
 use Carp qw//;
 use Try::Tiny;
 use JSON qw/from_json to_json/;
+use Path::Tiny qw/path/;
 
 sub new {
     my ($class, %args) = @_;
     my $self = bless {
         hanshi => $args{hanshi},
+        document_root => path($args{document_root})
     }, $class;
     $self->stash->{description} = $args{description} || '';
     $self;
 }
 
 sub hanshi {
-    return shift->{hanshi};
+    shift->{hanshi};
+}
+sub document_root {
+    shift->{document_root};
 }
 
 sub stash {
@@ -58,6 +63,14 @@ sub response {
 sub document {
     my $self = shift;
     return $self->hanshi->render( $self->stash );
+}
+
+sub write {
+    my ($self, $filename) = @_;
+    Carp::croak "Document root is not direcotry: " . $self->document_root  unless( -d $self->document_root );
+    my $doc = $self->document;
+    my $file = $self->document_root->child($filename);
+    $file->spew_utf8(($doc));
 }
 
 *req = \&request;

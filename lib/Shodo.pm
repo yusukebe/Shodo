@@ -4,19 +4,43 @@ use strict;
 use warnings;
 use Shodo::Suzuri;
 use Shodo::Hanshi;
+use Path::Tiny qw/path/;
 
 our $VERSION = "0.01";
 
 sub new {
     my ($class, %args) = @_;
-    my $self = bless \%args, $class;
+    my $self = bless {
+        template => $args{template},
+        document_root => $args{document_root} || path('./doc')
+    }, $class;
     $self;
+}
+
+sub template {
+    my ($self, $tmpl) = @_;
+    return $self->{template} unless $tmpl;
+    $self->{template} = $tmpl;
+    return $self->{template};
+}
+
+sub document_root {
+    my ($self, $path) = @_;
+    return $self->{document_root} unless $path;
+    $self->{document_root} = path($path);
+    return $self->{document_root};
 }
 
 sub new_suzuri {
     my ($self, $description) = @_;
-    my $hanshi = Shodo::Hanshi->new( template => $self->{template} );
-    return Shodo::Suzuri->new( hanshi => $hanshi, description => $description );
+    my $hanshi = Shodo::Hanshi->new(
+        template => $self->template,
+    );
+    return Shodo::Suzuri->new(
+        hanshi => $hanshi,
+        description => $description,
+        document_root => $self->document_root
+    );
 }
 
 1;

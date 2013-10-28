@@ -5,8 +5,8 @@ use HTTP::Response;
 use Shodo;
 use JSON qw/to_json/;
 
-my $shodo = Shodo->new;
-my $suzuri = $shodo->new_suzuri;
+my $shodo = Shodo->new( document_root => 'sample_documents' );
+my $suzuri = $shodo->new_suzuri('Just a test document');
 
 my $data = { method => 'echo', param => { message => 'Hello' } };
 my $req = POST '/endpoint';
@@ -20,5 +20,7 @@ $res->header('Content-Type' => 'application/json');
 $suzuri->response($res);
 
 ok $suzuri->doc();
+
+$suzuri->write('test.md');
 
 done_testing;
