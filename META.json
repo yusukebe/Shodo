@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "Auto-generate documents from HTTP::Request and HTTP::Response",
    "author" : [
       "Yusuke Wada <yusuke@kamawada.com>"
    ],
@@ -43,6 +43,10 @@
       },
       "runtime" : {
          "requires" : {
+            "HTTP::Message" : "0",
+            "JSON" : "0",
+            "Text::MicroTemplate" : "0",
+            "Try::Tiny" : "0",
             "perl" : "5.008005"
          }
       },

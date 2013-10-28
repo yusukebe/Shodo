@@ -1,10 +1,24 @@
 # NAME
 
-Shodo - It's new $module
+Shodo - Auto-generate documents from HTTP::Request and HTTP::Response
 
 # SYNOPSIS
 
+    use HTTP::Request::Common;
+    use HTTP::Response;
     use Shodo;
+    
+
+    my $shodo = Shodo->new();
+    my $suzuri = $shodo->new_suzuri();
+
+    my $req = POST '/entry', [ id => 1, message => 'Hello Shodo' ];
+    $suzuri->request($req);
+    my $res = HTTP::Response->new(200);
+    $res->content('{ message => "success" }');
+    $suzuri->response($res);
+
+    print $suzuri->document(); # print document as Markdown format
 
 # DESCRIPTION
 
