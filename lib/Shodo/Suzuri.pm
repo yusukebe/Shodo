@@ -1,6 +1,8 @@
 package Shodo::Suzuri;
 use strict;
 use warnings;
+use Carp qw//;
+use Try::Tiny;
 
 sub new {
     my ($class, %args) = @_;
@@ -20,7 +22,9 @@ sub stash {
 
 sub request {
     my ($self, $req) = @_;
-    # TODO:Validate $req object
+    unless (try { $req->isa('HTTP::Request') }) {
+        Carp::croak("Request is not HTTP::Request: $req");
+    }
     $self->stash->{method} = $req->method;
     $self->stash->{path} = $req->uri->path;
     $self->stash->{query} = $req->uri->query;
