@@ -39,8 +39,9 @@ sub default_template {
 
 ### Request
 
-<?= $method ?> <?= $path ?><?= $query || '' ?>
 ```
+<?= $method ?> <?= $path ?><?= $query || '' ?>
+
 <?= $request_body ?>
 ```
 
