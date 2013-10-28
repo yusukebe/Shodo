@@ -67,7 +67,7 @@ sub document {
 
 sub write {
     my ($self, $filename) = @_;
-    Carp::croak "Document root is not direcotry: " . $self->document_root  unless( -d $self->document_root );
+    Carp::croak "Document root is not direcotry: " . $self->document_root unless( -d $self->document_root );
     my $doc = $self->document;
     my $file = $self->document_root->child($filename);
     $file->spew_utf8(($doc));

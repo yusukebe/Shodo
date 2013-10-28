@@ -57,7 +57,7 @@ Shodo - Auto-generate documents from HTTP::Request and HTTP::Response
     use HTTP::Request::Common;
     use HTTP::Response;
     use Shodo;
-    
+
     my $shodo = Shodo->new();
     my $suzuri = $shodo->new_suzuri('An endpoint method.');
 
