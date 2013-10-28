@@ -57,5 +57,16 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/yusukebe/Shodo/issues"
+      },
+      "homepage" : "https://github.com/yusukebe/Shodo",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/yusukebe/Shodo.git",
+         "web" : "https://github.com/yusukebe/Shodo"
+      }
+   },
    "version" : "0.01"
 }
