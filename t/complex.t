@@ -10,7 +10,7 @@ my $suzuri = $shodo->new_suzuri('JSON-RPC like method "get_entries"');
 
 my $data = {
     method => 'get_entries',
-    params => { category => 'technology', limit => 10, page => 1 }
+    params => { category => 'technology', limit => 1, page => 1 }
 };
 
 $suzuri->rule(
@@ -26,7 +26,15 @@ $req->header('Content-Type' => 'application/json');
 $suzuri->request($req);
 
 my $res = HTTP::Response->new(200);
-$res->content(to_json( { result => { message => "hello" } }));
+$res->content(
+    to_json(
+        {
+            result => {
+                entries => [ { title => 'Hello', body => 'This is an example.' } ]
+            }
+        }
+    )
+);
 $res->header('Content-Type' => 'application/json');
 $suzuri->response($res);
 
