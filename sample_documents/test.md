@@ -1,6 +1,6 @@
 ## POST /endpoint
 
-Just a test document
+JSON-RPC like method "get_entries"
 
 
 ### Request
