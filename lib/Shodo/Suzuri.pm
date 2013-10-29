@@ -5,6 +5,7 @@ use Carp qw//;
 use Try::Tiny;
 use JSON qw/from_json to_json/;
 use Path::Tiny qw/path/;
+use Data::Validator;
 
 sub new {
     my ($class, %args) = @_;
@@ -71,6 +72,24 @@ sub write {
     my $doc = $self->document;
     my $file = $self->document_root->child($filename);
     $file->spew_utf8(($doc));
+}
+
+sub rule {
+    my ($self, %args) = @_;
+    my $validator = Data::Validator->new( %args );
+    $self->{validator} = $validator;
+}
+
+sub validate {
+    my ($self, @args) = @_;
+    Carp::croak "Rule is not set on Suzuri instance" unless $self->{validator};
+    my $result;
+    if( ref $args[0] && ref $args[0] eq 'HASH') {
+        $result = $self->{validator}->validate($args[0]);
+    }else{
+        $result = $self->{validator}->validate(@args);
+    }
+    return $result;
 }
 
 *req = \&request;

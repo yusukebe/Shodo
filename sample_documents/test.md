@@ -10,9 +10,11 @@ POST /endpoint
 
 {
    "params" : {
-      "message" : "Hello"
+      "page" : 1,
+      "category" : "technology",
+      "limit" : 10
    },
-   "method" : "echo"
+   "method" : "get_entries"
 }
 
 ```
