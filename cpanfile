@@ -4,6 +4,7 @@ requires 'HTTP::Message';
 requires 'JSON';
 requires 'Text::MicroTemplate';
 requires 'Try::Tiny';
+requires 'Data::Validator';
 requires 'Clone';
 
 on 'test' => sub {
