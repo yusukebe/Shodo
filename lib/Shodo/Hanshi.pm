@@ -56,9 +56,9 @@ sub default_template {
 
 ? for my $name (keys %$rule) {
 * `<?= $name ?>` - <?= $rule->{$name}{documentation} || '' ?>
-** Isa: <?= $rule->{$name}{isa} || '' ?>
-** Default: <?= $rule->{$name}{default} || '' ?>
-** Optional: <?= $rule->{$name}{optional} || '' ?>
+  * Isa: <?= $rule->{$name}{isa} || '' ?>
+  * Default: <?= $rule->{$name}{default} || '' ?>
+  * Optional: <?= $rule->{$name}{optional} || '' ?>
 ? }
 ? }
 
