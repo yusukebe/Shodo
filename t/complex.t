@@ -6,7 +6,7 @@ use Shodo;
 use JSON qw/to_json/;
 
 my $shodo = Shodo->new( document_root => 'sample_documents' );
-my $suzuri = $shodo->new_suzuri('Just a test document');
+my $suzuri = $shodo->new_suzuri('JSON-RPC like method "get_entries"');
 
 my $data = {
     method => 'get_entries',
