@@ -43,6 +43,7 @@
       },
       "runtime" : {
          "requires" : {
+            "Clone" : "0",
             "HTTP::Message" : "0",
             "JSON" : "0",
             "Text::MicroTemplate" : "0",

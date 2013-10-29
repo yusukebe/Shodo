@@ -4,6 +4,7 @@ requires 'HTTP::Message';
 requires 'JSON';
 requires 'Text::MicroTemplate';
 requires 'Try::Tiny';
+requires 'Clone';
 
 on 'test' => sub {
     requires 'Test::More', '0.98';

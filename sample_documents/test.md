@@ -19,6 +19,21 @@ POST /endpoint
 
 ```
 
+### Parameters
+
+* `page` - Page number you want to get.
+** Isa: Int
+** Default: 1
+** Optional: 1
+* `category` - Category of articles.
+** Isa: Str
+** Default: 
+** Optional: 
+* `limit` - Limitation numbers per page.
+** Isa: Int
+** Default: 20
+** Optional: 1
+
 ### Response
 
 ```

@@ -21,7 +21,13 @@ sub header {
 ? my ($stash) = @_;
 ? no strict qw/refs vars/;
 ? no warnings;
-? ${$_} = encoded_string($stash->{$_}) for keys %$stash;
+? for my $key (keys %$stash) {
+? if (ref $stash->{$key}) {
+? ${$key} = $stash->{$key};
+? }else{
+? ${$key} = encoded_string($stash->{$key});
+? }
+? }
 ? use warnings;
 ? use strict qw/refs subs/;
 END
@@ -44,6 +50,17 @@ sub default_template {
 
 <?= $request_body ?>
 ```
+? if ($rule) {
+
+### Parameters
+
+? for my $name (keys %$rule) {
+* `<?= $name ?>` - <?= $rule->{$name}{documentation} || '' ?>
+** Isa: <?= $rule->{$name}{isa} || '' ?>
+** Default: <?= $rule->{$name}{default} || '' ?>
+** Optional: <?= $rule->{$name}{optional} || '' ?>
+? }
+? }
 
 ### Response
 

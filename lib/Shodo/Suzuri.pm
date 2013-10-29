@@ -6,6 +6,7 @@ use Try::Tiny;
 use JSON qw/from_json to_json/;
 use Path::Tiny qw/path/;
 use Data::Validator;
+use Clone qw/clone/;
 
 sub new {
     my ($class, %args) = @_;
@@ -76,6 +77,7 @@ sub write {
 
 sub rule {
     my ($self, %args) = @_;
+    $self->stash->{rule} = clone(\%args);
     my $validator = Data::Validator->new( %args );
     $self->{validator} = $validator;
 }
