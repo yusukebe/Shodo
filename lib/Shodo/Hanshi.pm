@@ -58,7 +58,7 @@ sub default_template {
 ? for my $key (keys %{$rule->{$name}}) {
 ? next if $key eq 'documentation';
 ? if ($rule->{$name}{$key}) {
-  * <?= $key ?>: <?= $rule->{$name}{$key} || '' ?>
+  * <?= $key ?>: **<?= $rule->{$name}{$key} || '' ?>**
 ? }
 ? }
 ? }
