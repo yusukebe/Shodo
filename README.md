@@ -27,7 +27,7 @@ __THIS IS A DEVELOPMENT RELEASE. API MAY CHANGE WITHOUT NOTICE__.
 
 # Methods of "Shodo" Module
 
-## new(%option)
+## new
 
     my $shodo = Shodo->new(
         document_root => 'doc'
@@ -108,6 +108,14 @@ autodoc: [https://github.com/r7kamura/autodoc](https://github.com/r7kamura/autod
 [Test::JsonAPI::Autodoc](http://search.cpan.org/perldoc?Test::JsonAPI::Autodoc)
 
 What is Shodo?: [http://en.wikipedia.org/wiki/Shodo](http://en.wikipedia.org/wiki/Shodo)
+
+# THANKS
+
+Songmu for naming as "Shodo". It's pretty.
+
+Moznion for making Test::JsonAPI::Autodoc.
+
+Hachioji.pm for advising.
 
 # LICENSE
 

@@ -93,7 +93,7 @@ B<THIS IS A DEVELOPMENT RELEASE. API MAY CHANGE WITHOUT NOTICE>.
 
 =head1 Methods of "Shodo" Module
 
-=head2 new(%option)
+=head2 new
 
     my $shodo = Shodo->new(
         document_root => 'doc'
@@ -177,9 +177,9 @@ What is Shodo?: L<http://en.wikipedia.org/wiki/Shodo>
 
 =head1 THANKS
 
-songmu for naming "Shodo".
+Songmu for naming as "Shodo". It's pretty.
 
-moznion for making Test::JsonAPI::Autodoc.
+Moznion for making Test::JsonAPI::Autodoc.
 
 Hachioji.pm for advising.
 
