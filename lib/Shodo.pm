@@ -175,6 +175,12 @@ L<Test::JsonAPI::Autodoc>
 
 What is Shodo?: L<http://en.wikipedia.org/wiki/Shodo>
 
+=head1 THANKS
+
+songmu for naming "Shodo"
+
+moznion for making Test::JsonAPI::Autodoc
+
 =head1 LICENSE
 
 Copyright (C) Yusuke Wada.
