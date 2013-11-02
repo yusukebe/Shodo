@@ -107,6 +107,8 @@ autodoc: [https://github.com/r7kamura/autodoc](https://github.com/r7kamura/autod
 
 [Test::JsonAPI::Autodoc](http://search.cpan.org/perldoc?Test::JsonAPI::Autodoc)
 
+What is Shodo?: [http://en.wikipedia.org/wiki/Shodo](http://en.wikipedia.org/wiki/Shodo)
+
 # LICENSE
 
 Copyright (C) Yusuke Wada.

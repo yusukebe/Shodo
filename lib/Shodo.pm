@@ -173,6 +173,8 @@ autodoc: L<https://github.com/r7kamura/autodoc>
 
 L<Test::JsonAPI::Autodoc>
 
+What is Shodo?: L<http://en.wikipedia.org/wiki/Shodo>
+
 =head1 LICENSE
 
 Copyright (C) Yusuke Wada.
