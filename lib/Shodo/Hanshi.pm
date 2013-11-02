@@ -72,6 +72,8 @@ Status: <?= $code ?>
 <?= $response_body ?>
 ```
 
+---
+
 END
     return $tmpl;
 }
