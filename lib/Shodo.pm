@@ -177,9 +177,11 @@ What is Shodo?: L<http://en.wikipedia.org/wiki/Shodo>
 
 =head1 THANKS
 
-songmu for naming "Shodo"
+songmu for naming "Shodo".
 
-moznion for making Test::JsonAPI::Autodoc
+moznion for making Test::JsonAPI::Autodoc.
+
+Hachioji.pm for advising.
 
 =head1 LICENSE
 
