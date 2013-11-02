@@ -2,7 +2,6 @@
 
 get_entries
 
-
 ### Request
 
 ```
@@ -24,17 +23,15 @@ POST /endpoint
 ### Parameters
 
 * `page` - Page number you want to get.
-  * Isa: Int
-  * Default: 1
-  * Optional: 1
+  * isa: Int
+  * default: 1
+  * optional: 1
 * `category` - Category of articles.
-  * Isa: Str
-  * Default: 
-  * Optional: 
+  * isa: Str
 * `limit` - Limitation numbers per page.
-  * Isa: Int
-  * Default: 20
-  * Optional: 1
+  * isa: Int
+  * default: 20
+  * optional: 1
 
 ### Response
 

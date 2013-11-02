@@ -37,10 +37,9 @@ END
 sub default_template {
     my $tmpl = <<'END';
 ## <?= $method ?> <?= $path ?>
+
 ? if ($description) {
-
 <?= $description ?>
-
 ? }
 
 ### Request
@@ -56,9 +55,12 @@ sub default_template {
 
 ? for my $name (keys %$rule) {
 * `<?= $name ?>` - <?= $rule->{$name}{documentation} || '' ?>
-  * Isa: <?= $rule->{$name}{isa} || '' ?>
-  * Default: <?= $rule->{$name}{default} || '' ?>
-  * Optional: <?= $rule->{$name}{optional} || '' ?>
+? for my $key (keys %{$rule->{$name}}) {
+? next if $key eq 'documentation';
+? if ($rule->{$name}{$key}) {
+  * <?= $key ?>: <?= $rule->{$name}{$key} || '' ?>
+? }
+? }
 ? }
 ? }
 
