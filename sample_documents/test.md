@@ -1,6 +1,6 @@
 ## POST /endpoint
 
-JSON-RPC like method "get_entries"
+get_entries
 
 
 ### Request
@@ -14,7 +14,9 @@ POST /endpoint
       "category" : "technology",
       "limit" : 1
    },
-   "method" : "get_entries"
+   "jsonrpc" : "2.0",
+   "method" : "get_entries",
+   "id" : 1
 }
 
 ```
@@ -40,6 +42,8 @@ POST /endpoint
 Status: 200
 
 {
+   "jsonrpc" : "2.0",
+   "id" : 1,
    "result" : {
       "entries" : [
          {

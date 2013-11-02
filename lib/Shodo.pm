@@ -12,8 +12,9 @@ sub new {
     my ($class, %args) = @_;
     my $self = bless {
         template => $args{template},
-        document_root => $args{document_root} || path('./doc')
+        document_root => $args{document_root} ? path($args{document_root}) : path('.'),
     }, $class;
+    $self->{stock} = '';
     $self;
 }
 
@@ -41,6 +42,20 @@ sub new_suzuri {
         description => $description,
         document_root => $self->document_root
     );
+}
+
+sub stock {
+    my ($self, $doc) = @_;
+    return $self->{stock} unless $doc;
+    $self->{stock} .= $doc;
+    return $self->{stock};
+}
+
+sub write {
+    my ($self, $filename) = @_;
+    Carp::croak "Document root is not direcotry: " . $self->document_root unless( -d $self->document_root );
+    my $file = $self->document_root->child($filename);
+    $file->spew_utf8( $self->stock );
 }
 
 1;
