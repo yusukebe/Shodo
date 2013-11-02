@@ -56,6 +56,7 @@ sub write {
     Carp::croak "Document root is not direcotry: " . $self->document_root unless( -d $self->document_root );
     my $file = $self->document_root->child($filename);
     $file->spew_utf8( $self->stock );
+    $self->{stock} = '';
 }
 
 1;
@@ -86,7 +87,91 @@ Shodo - Auto-generate documents from HTTP::Request and HTTP::Response
 
 =head1 DESCRIPTION
 
-Shodo is ...
+Shodo generates Web API documents as Markdown format automatically and validates parameters using HTTP::Request/Response.
+
+B<THIS IS A DEVELOPMENT RELEASE. API MAY CHANGE WITHOUT NOTICE>.
+
+=head1 Methods of "Shodo" Module
+
+=head2 new(%option)
+
+    my $shodo = Shodo->new(
+        document_root => 'doc'
+    );
+
+Create and return new Shodo object. "document_root" is optional parameter for your document root directory.
+
+=head2 template
+
+    $shodo->template($tmpl);
+
+Set custom template.
+
+=head2 document_root
+
+    $shodo->document_root('doc');
+
+Set document root direcotry.
+
+=head2 new_suzuri
+
+    my $suzuri = $shodo->new_suzuri('This is description.');
+
+Create and return new Suzuri object with the description.
+
+=head2 stock
+
+    $shodo->stock($suzuri->doc());
+
+Stock text of documents for writing later. The parameter documnet is anything ok, but Markdown based is recommended.
+
+=head2 write
+
+    $shodo->write('output.md');
+
+Write the documentation in stocks to the file and make the stock empty.
+
+=head1 Methods of "Suzuri" Module
+
+=head2 request
+
+    $suzuri->request($req);
+
+Set HTTP::Request object.
+
+=head2 response
+
+    $suzuri->response($res);
+
+Set HTTP::Response object.
+
+=head2 params
+
+    $suzuri->params(
+        category => { isa => 'Str', documentation => 'Category of articles.' },
+        limit => { isa => 'Int', default => 20, optional => 1, documentation => 'Limitation numbers per page.' },
+        page => { isa => 'Int', default => 1, optional => 1, documentation => 'Page number you want to get.' }
+    );
+
+Parameters for validation and documentation. These rules are based on L<Data::Validator>'s interfaces.
+
+=head2 validate
+
+    $suzuri->validate($params);
+
+Validate with the rules defined by "params" method. Parameter must be HASH ref.
+
+=head2 doc
+
+    $suzuri->doc();
+
+Return the Markdown formated document for Web API.
+
+=head1 SEE ALSO
+
+autodoc: L<https://github.com/r7kamura/autodoc>
+
+L<Test::JsonAPI::Autodoc>
 
 =head1 LICENSE
 

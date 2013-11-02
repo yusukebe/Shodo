@@ -19,9 +19,6 @@ sub new {
 sub hanshi {
     shift->{hanshi};
 }
-sub document_root {
-    shift->{document_root};
-}
 
 sub stash {
     my $self = shift;
