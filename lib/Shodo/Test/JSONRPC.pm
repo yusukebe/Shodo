@@ -75,7 +75,7 @@ __END__
 
 =head1 NAME
 
-Shodo::Test::JSONRPC - Test module using Shodo for JSON-RPC Web API.
+Shodo::Test::JSONRPC - Test module using Shodo for JSON-RPC Web API
 
 =head1 SYNOPSIS
 
