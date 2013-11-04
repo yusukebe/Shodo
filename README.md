@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/yusukebe/Shodo.png?branch=master)](https://travis-ci.org/yusukebe/Shodo)
 # NAME
 
 Shodo - Auto-generate documents from HTTP::Request and HTTP::Response
