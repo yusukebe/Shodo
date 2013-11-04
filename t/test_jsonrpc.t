@@ -41,5 +41,6 @@ shodo_test 'get_entries' => sub {
 };
 
 ok(shodo_doc());
+shodo_write('some_methods.md');
 
 done_testing();
