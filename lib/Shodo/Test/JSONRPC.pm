@@ -103,7 +103,7 @@ Shodo::Test::JSONRPC - Test module using Shodo for JSON-RPC Web API.
     my $plack_test = Plack::Test->create($app);
     shodo_document_root('sample_documents');
 
-    # shodo_test, not like a subtest!
+    # shodo_test, like a subtest!
     shodo_test 'get_entries' => sub {
         shodo_params(
             category => { isa => 'Str', documentation => 'Category of articles.' },
