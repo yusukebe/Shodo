@@ -45,7 +45,7 @@ Set custom template.
 
     $shodo->document_root('doc');
 
-Set document root direcotry.
+Set document root directory.
 
 ## new\_suzuri
 
@@ -57,7 +57,7 @@ Create and return new Suzuri object with the description.
 
     $shodo->stock($suzuri->doc());
 
-Stock text of documents for writing later. The parameter documnet is anything ok, but Markdown based is recommended.
+Stock text of documents for writing later. The parameter document is anything ok, but Markdown based is recommended.
 
 ## write
 
@@ -99,11 +99,11 @@ Validate with the rules defined by "params" method. Parameter must be HASH ref.
 
     $suzuri->doc();
 
-Return the Markdown formated document for Web API.
+Return the Markdown formatted document for Web API.
 
 # SEE ALSO
 
-autodoc: [https://github.com/r7kamura/autodoc](https://github.com/r7kamura/autodoc)
+"autodoc": [https://github.com/r7kamura/autodoc](https://github.com/r7kamura/autodoc)
 
 [Test::JsonAPI::Autodoc](http://search.cpan.org/perldoc?Test::JsonAPI::Autodoc)
 
