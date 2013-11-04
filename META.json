@@ -47,6 +47,7 @@
             "Data::Validator" : "0",
             "HTTP::Message" : "0",
             "JSON" : "0",
+            "Path::Tiny" : "0",
             "Text::MicroTemplate" : "0",
             "Try::Tiny" : "0",
             "perl" : "5.008005"
@@ -70,5 +71,5 @@
          "web" : "https://github.com/yusukebe/Shodo"
       }
    },
-   "version" : "0.02"
+   "version" : "0.03"
 }

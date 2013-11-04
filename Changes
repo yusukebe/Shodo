@@ -2,6 +2,10 @@ Revision history for Perl extension Shodo
 
 {{$NEXT}}
 
+0.03 2013-11-04T07:30:48Z
+
+    - add required module
+
 0.02 2013-11-04T07:19:56Z
 
     - update documents
