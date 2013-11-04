@@ -75,18 +75,66 @@ __END__
 
 =head1 NAME
 
-Shodo::Test::JSONRPC - 
+Shodo::Test::JSONRPC - Test module using Shodo for JSON-RPC Web API.
 
 =head1 SYNOPSIS
 
     use Test::More;
+    use Plack::Test;
+    use HTTP::Request;
+    use JSON qw/to_json/;
     use Shodo::Test::JSONRPC;
+
+    # PSGI application
+    my $app = sub {
+        my $data = {
+            jsonrpc => '2.0',
+            result  => {
+                entries =>
+                  [ { title => 'Hello', body => 'This is an example.' } ]
+            },
+            id => 1
+        };
+        my $json = to_json($data);
+        return [ 200, [ 'Content-Type' => 'application/json' ], [$json] ];
+    };
+
+    # use Plack::Test
+    my $plack_test = Plack::Test->create($app);
+    shodo_document_root('sample_documents');
+
+    # shodo_test, not like a subtest!
+    shodo_test 'get_entries' => sub {
+        shodo_params(
+            category => { isa => 'Str', documentation => 'Category of articles.' },
+            limit => { isa => 'Int', default => 20, optional => 1, documentation => 'Limitation numbers per page.' }
+        );
+        my $data = {
+            jsonrpc => '2.0',
+            method  => 'get_entries',
+            params  => { limit => 1, category => 'technology' }
+        };
+        my $json = to_json($data);
+        my $req  = HTTP::Request->new(
+            'POST', '/',
+            [
+                'Content-Type'   => 'application/json',
+                'Content-Length' => length $json
+            ],
+            $json
+        );
+        shodo_req_ok( $req, 'Request is valid!' );
+        my $res = $plack_test->request($req);
+        shodo_res_ok( $res, 200, 'Response is ok!' ); # auto sock document
+    };
+
+    shodo_write(); # Generate a markdown-formatted document.
+
+    done_testing();
 
 =head1 DESCRIPTION
 
-Shodo generates Web API documents as Markdown format automatically and validates parameters using HTTP::Request/Response.
-
-B<THIS IS A DEVELOPMENT RELEASE. API MAY CHANGE WITHOUT NOTICE>.
+Shodo-based test module for JSON-RPC Web API.
 
 =head1 LICENSE
 
@@ -100,4 +148,3 @@ it under the same terms as Perl itself.
 Yusuke Wada E<lt>yusuke@kamawada.comE<gt>
 
 =cut
-

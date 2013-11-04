@@ -1,23 +1,10 @@
 use strict;
 use Test::More;
-use Plack::Test;
 use HTTP::Request;
+use HTTP::Response;
 use JSON qw/to_json/;
 use Shodo::Test::JSONRPC;
 
-my $app = sub {
-    my $data = {
-        jsonrpc => '2.0',
-        result => {
-            entries => [ { title => 'Hello', body => 'This is an example.' } ]
-        },
-        id => 1
-    };
-    my $json = to_json($data);
-    return [200, [ 'Content-Type' => 'application/json' ], [$json] ];
-};
-
-my $plack_test = Plack::Test->create($app);
 shodo_document_root('sample_documents');
 
 shodo_test 'get_entries' => sub {
@@ -39,7 +26,17 @@ shodo_test 'get_entries' => sub {
         $json
     );
     shodo_req_ok($req, 'Request is valid!');
-    my $res = $plack_test->request($req);
+    my $res = HTTP::Response->new(200);
+    $data = {
+        jsonrpc => '2.0',
+        result => {
+            entries => [ { title => 'Hello', body => 'This is an example.' } ]
+        },
+        id => 1
+    };
+    $json = to_json($data);
+    $res->content($json);
+    $res->header('Content-Type' => 'application/json');
     shodo_res_ok($res, 200, 'Response is ok!'); # auto sock document
 };
 
