@@ -2,6 +2,8 @@ Revision history for Perl extension Shodo
 
 {{$NEXT}}
 
+    - no throw on validation error
+
 0.03 2013-11-04T07:30:48Z
 
     - add required module
