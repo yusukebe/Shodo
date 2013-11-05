@@ -40,6 +40,25 @@ shodo_test 'get_entries' => sub {
     shodo_res_ok($res, 200, 'Response is ok!'); # auto sock document
 };
 
+shodo_test 'validation_error' => sub {
+    shodo_params(
+        page => { isa => 'Int' }
+    );
+    my $data = {
+        jsonrpc => '2.0',
+        method  => 'get_entries',
+        params  => { page => 'foo' },
+    };
+    my $json = to_json($data);
+    my $req = HTTP::Request->new(
+        'POST',
+        '/',
+        [ 'Content-Type' => 'application/json', 'Content-Length' => length $json ],
+        $json
+    );
+    ok !shodo_req_ok($req, 'Request is valid!');
+};
+
 ok(shodo_doc());
 shodo_write('some_methods.md');
 
