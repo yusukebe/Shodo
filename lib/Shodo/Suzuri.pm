@@ -65,7 +65,7 @@ sub document {
 sub params {
     my ($self, %args) = @_;
     $self->stash->{rule} = clone(\%args);
-    my $validator = Data::Validator->new( %args );
+    my $validator = Data::Validator->new( %args )->with('NoThrow');
     $self->{validator} = $validator;
 }
 
@@ -77,6 +77,9 @@ sub validate {
         $result = $self->{validator}->validate($args[0]);
     }else{
         $result = $self->{validator}->validate(@args);
+    }
+    if($self->{validator}->has_errors()) {
+        return;
     }
     return $result;
 }
