@@ -34,9 +34,9 @@ sub request {
     $self->stash->{method} = $req->method;
     $self->stash->{path} = $req->uri->path;
     $self->stash->{query} = $req->uri->query;
-    $self->stash->{request_body} = $req->content;
+    $self->stash->{request_body} = $req->decoded_content;
     if($req->content_type =~ m!^application/json!) {
-        my $json_body = to_json(from_json($req->decoded_content), { pretty => 1 });
+        my $json_body = to_json(from_json($self->stash->{request_body}, { utf8 => 1 }), { pretty => 1 });
         $self->stash->{request_body} = $json_body;
     }
     return $req;
@@ -49,9 +49,9 @@ sub response {
     }
     $self->stash->{code} = $res->code;
     $self->stash->{status_line} = $res->status_line;
-    $self->stash->{response_body} = $res->content;
+    $self->stash->{response_body} = $res->decoded_content;
     if($res->content_type =~ m!^application/json!) {
-        my $json_body = to_json(from_json($res->decoded_content), { pretty => 1 });
+        my $json_body = to_json(from_json($self->stash->{response_body}, { utf8 => 1}), { pretty => 1 });
         $self->stash->{response_body} = $json_body;
     }
     return $res;

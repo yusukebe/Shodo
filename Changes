@@ -2,6 +2,10 @@ Revision history for Perl extension Shodo
 
 {{$NEXT}}
 
+0.05 2013-11-05T09:18:14Z
+
+    - fixed utf8 bug
+
 0.04 2013-11-05T05:05:22Z
 
     - no throw on validation error
