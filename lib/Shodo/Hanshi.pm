@@ -44,7 +44,7 @@ sub default_template {
 
 ### Request
 
-```
+```json
 <?= $method ?> <?= $path ?><?= $query || '' ?>
 
 <?= $request_body ?>
