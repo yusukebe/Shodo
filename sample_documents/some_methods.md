@@ -4,7 +4,7 @@ get_entries
 
 ### Request
 
-```
+```json
 POST /
 
 {
@@ -33,7 +33,7 @@ POST /
 
 ### Response
 
-```
+```json
 Status: 200
 
 {

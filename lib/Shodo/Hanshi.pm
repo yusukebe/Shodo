@@ -66,7 +66,7 @@ sub default_template {
 
 ### Response
 
-```
+```json
 Status: <?= $code ?>
 
 <?= $response_body ?>
