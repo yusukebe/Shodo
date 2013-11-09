@@ -2,6 +2,10 @@ Revision history for Perl extension Shodo
 
 {{$NEXT}}
 
+0.06 2013-11-09T16:25:50Z
+
+    - highlight JSON texts
+
 0.05 2013-11-05T09:18:14Z
 
     - fixed utf8 bug
