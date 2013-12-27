@@ -90,3 +90,60 @@ sub validate {
 *rule = \&params;
 
 1;
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+Shodo::Suzuri - Request and Reponse Parser for Shodo
+
+=head1 Methods
+
+=head2 request
+
+    $suzuri->request($req);
+
+Set HTTP::Request object.
+
+=head2 response
+
+    $suzuri->response($res);
+
+Set HTTP::Response object.
+
+=head2 params
+
+    $suzuri->params(
+        category => { isa => 'Str', documentation => 'Category of articles.' },
+        limit => { isa => 'Int', default => 20, optional => 1, documentation => 'Limitation numbers per page.' },
+        page => { isa => 'Int', default => 1, optional => 1, documentation => 'Page number you want to get.' }
+    );
+
+Parameters for validation and documentation. These rules are based on L<Data::Validator>'s interfaces.
+
+=head2 validate
+
+    $suzuri->validate($params);
+
+Validate with the rules defined by "params" method. Parameter must be HASH ref.
+
+=head2 doc
+
+    $suzuri->doc();
+
+Return the Markdown formatted document for Web API.
+
+=head1 LICENSE
+
+Copyright (C) Yusuke Wada.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=head1 AUTHOR
+
+Yusuke Wada E<lt>yusuke@kamawada.comE<gt>
+
+=cut

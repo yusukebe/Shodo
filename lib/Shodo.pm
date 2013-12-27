@@ -91,7 +91,7 @@ Shodo generates Web API documents as Markdown format automatically and validates
 
 B<THIS IS A DEVELOPMENT RELEASE. API MAY CHANGE WITHOUT NOTICE>.
 
-=head1 Methods of "Shodo" Module
+=head1 Methods
 
 =head2 new
 
@@ -117,7 +117,7 @@ Set document root directory.
 
     my $suzuri = $shodo->new_suzuri('This is description.');
 
-Create and return new Suzuri object with the description.
+Create and return new L<Shodo::Suzuri> object with the description.
 
 =head2 stock
 
@@ -131,43 +131,9 @@ Stock text of documents for writing later. The parameter document is anything ok
 
 Write the documentation in stocks to the file and make the stock empty.
 
-=head1 Methods of "Suzuri" Module
-
-=head2 request
-
-    $suzuri->request($req);
-
-Set HTTP::Request object.
-
-=head2 response
-
-    $suzuri->response($res);
-
-Set HTTP::Response object.
-
-=head2 params
-
-    $suzuri->params(
-        category => { isa => 'Str', documentation => 'Category of articles.' },
-        limit => { isa => 'Int', default => 20, optional => 1, documentation => 'Limitation numbers per page.' },
-        page => { isa => 'Int', default => 1, optional => 1, documentation => 'Page number you want to get.' }
-    );
-
-Parameters for validation and documentation. These rules are based on L<Data::Validator>'s interfaces.
-
-=head2 validate
-
-    $suzuri->validate($params);
-
-Validate with the rules defined by "params" method. Parameter must be HASH ref.
-
-=head2 doc
-
-    $suzuri->doc();
-
-Return the Markdown formatted document for Web API.
-
 =head1 SEE ALSO
+
+L<Test::Shodo::JSONRPC>
 
 "autodoc": L<https://github.com/r7kamura/autodoc>
 
@@ -195,4 +161,3 @@ it under the same terms as Perl itself.
 Yusuke Wada E<lt>yusuke@kamawada.comE<gt>
 
 =cut
-
