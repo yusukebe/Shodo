@@ -7,8 +7,9 @@ requires 'Try::Tiny';
 requires 'Data::Validator';
 requires 'Clone';
 requires 'Path::Tiny';
+requires 'parent';
+requires 'Test::More', '0.98';
 
 on 'test' => sub {
     requires 'Test::More', '0.98';
 };
-

@@ -48,8 +48,10 @@
             "HTTP::Message" : "0",
             "JSON" : "0",
             "Path::Tiny" : "0",
+            "Test::More" : "0.98",
             "Text::MicroTemplate" : "0",
             "Try::Tiny" : "0",
+            "parent" : "0",
             "perl" : "5.008005"
          }
       },
