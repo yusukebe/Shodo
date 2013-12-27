@@ -5,7 +5,7 @@ use_ok $_ for qw/
     Shodo
     Shodo::Suzuri
     Shodo::Hanshi
-    Shodo::Test::JSONRPC
+    Test::Shodo::JSONRPC
 /;
 
 done_testing;

@@ -6,7 +6,7 @@ use Shodo::Suzuri;
 use Shodo::Hanshi;
 use Path::Tiny qw/path/;
 
-our $VERSION = "0.07";
+our $VERSION = "0.08";
 
 sub new {
     my ($class, %args) = @_;
