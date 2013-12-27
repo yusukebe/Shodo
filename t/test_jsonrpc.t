@@ -3,7 +3,7 @@ use Test::More;
 use HTTP::Request;
 use HTTP::Response;
 use JSON qw/to_json/;
-use Shodo::Test::JSONRPC;
+use Test::Shodo::JSONRPC;
 
 shodo_document_root('sample_documents');
 

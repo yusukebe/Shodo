@@ -1,4 +1,4 @@
-package Shodo::Test::JSONRPC;
+package Test::Shodo::JSONRPC;
 use strict;
 use warnings;
 use Shodo;
@@ -75,7 +75,7 @@ __END__
 
 =head1 NAME
 
-Shodo::Test::JSONRPC - Test module using Shodo for JSON-RPC Web API
+Test::Shodo::JSONRPC - Test module using Shodo for JSON-RPC Web API
 
 =head1 SYNOPSIS
 
@@ -83,7 +83,7 @@ Shodo::Test::JSONRPC - Test module using Shodo for JSON-RPC Web API
     use Plack::Test;
     use HTTP::Request;
     use JSON qw/to_json/;
-    use Shodo::Test::JSONRPC;
+    use Test::Shodo::JSONRPC;
 
     # PSGI application
     my $app = sub {
